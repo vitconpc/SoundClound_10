@@ -17,10 +17,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         return this.mPresenter;
     }
 
-    protected abstract void initData(Bundle savedInstanceState);
-
-    protected abstract void initView(Bundle savedInstanceState);
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,4 +26,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         initData(savedInstanceState);
     }
 
+    protected abstract void initData(Bundle savedInstanceState);
+
+    protected abstract void initView(Bundle savedInstanceState);
 }
