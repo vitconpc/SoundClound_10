@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".view.splash.SplashActivity">
+    tools:context=".screen.splash.SplashActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -17,7 +17,7 @@
         android:layout_marginRight="@dimen/dp_8"
         android:layout_marginStart="@dimen/dp_8"
         android:src="@drawable/icon_app"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/text_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp_16"

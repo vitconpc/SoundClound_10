@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">SoundCloud</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Dong Hien</string>
+    <string name="nav_header_subtitle">hien.mit.3009</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="string_offline">Offline</string>
+    <string name="string_online">Online</string>
+    <string name="string_dong_bo">Đồng bộ</string>
+    <string name="string_hen_gio">Hẹn giờ</string>
+    <string name="string_danh_gia_ung_dung">Đánh giá ứng dụng</string>
+    <string name="string_thong_tin_ung_dung">Thông tin ứng dụng</string>
+    <string name="string_huong_dan">Hướng dẫn và hỗ trợ</string>
+
 </resources>
