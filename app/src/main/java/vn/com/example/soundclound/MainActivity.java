@@ -19,12 +19,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-
     }
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-
     }
 
 }
