@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_sync"
+            android:title="@string/string_dong_bo" />
+        <item
+            android:id="@+id/nav_time"
+            android:title="@string/string_hen_gio" />
+        <item
+            android:id="@+id/nav_vote"
+            android:title="@string/string_danh_gia_ung_dung" />
+        <item
+            android:id="@+id/nav_info"
+            android:title="@string/string_thong_tin_ung_dung" />
+        <item
+            android:id="@+id/nav_guide"
+            android:title="@string/string_huong_dan" />
+    </group>
+
+</menu>

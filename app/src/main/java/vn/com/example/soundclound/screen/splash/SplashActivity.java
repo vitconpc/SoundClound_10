@@ -1,10 +1,10 @@
-package vn.com.example.soundclound.view.splash;
+package vn.com.example.soundclound.screen.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import vn.com.example.soundclound.MainActivity;
+import vn.com.example.soundclound.screen.main.MainActivity;
 import vn.com.example.soundclound.R;
 import vn.com.example.soundclound.presenter.base.BasePresenter;
 import vn.com.example.soundclound.view.base.activity.BaseActivity;
