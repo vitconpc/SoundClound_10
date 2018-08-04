@@ -15,7 +15,7 @@ public class OnlineFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_offline, container, false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_online, container, false);
         return view;
     }
 
