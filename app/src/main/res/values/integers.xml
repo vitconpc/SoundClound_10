@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="angle_135">135</integer>
+    <integer name="integer_3">3</integer>
+    <integer name="integer_1">1</integer>
+    <integer name="integer_4">4</integer>
+    <integer name="integer_2">2</integer>
 
 </resources>
