@@ -15,7 +15,7 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
 
     private Context mContext;
 
-    public FragmentAdapter(Context context,FragmentManager fm) {
+    public FragmentAdapter(Context context, FragmentManager fm) {
         super(fm);
         this.mContext = context;
     }
@@ -46,10 +46,10 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
         String title = Constants.STRING_EMPTY;
         switch (position) {
             case TabType.OFFLINE:
-                title = mContext.getResources().getString(R.string.string_offline);
+                title = mContext.getResources().getString(R.string.tittle_offline);
                 break;
             case TabType.ONLINE:
-                title = mContext.getResources().getString(R.string.string_online);
+                title = mContext.getResources().getString(R.string.tittle_online);
                 break;
             default:
                 break;
