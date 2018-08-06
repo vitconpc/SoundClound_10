@@ -9,19 +9,18 @@
     <string name="action_settings">Cài đặt</string>
     <string name="tittle_offline">Của tui</string>
     <string name="tittle_online">Trực tuyến</string>
-    <string name="action_dong_bo">Đồng bộ</string>
-    <string name="action_hen_gio">Hẹn giờ</string>
-    <string name="action_danh_gia_ung_dung">Đánh giá ứng dụng</string>
-    <string name="action_thong_tin_ung_dung">Thông tin ứng dụng</string>
-    <string name="action_huong_dan">Hướng dẫn và hỗ trợ</string>
-    <string name="action_cai_dat">Cài đặt</string>
-    <string name="action_dang_xuat">Đăng xuất</string>
-    <string name="tittle_the_loai">Thể loại: </string>
+    <string name="action_synchronized">Đồng bộ</string>
+    <string name="action_timer">Hẹn giờ</string>
+    <string name="action_rate_app">Đánh giá ứng dụng</string>
+    <string name="action_app_information">Thông tin ứng dụng</string>
+    <string name="action_guide">Hướng dẫn và hỗ trợ</string>
+    <string name="action_setting">Cài đặt</string>
+    <string name="action_log_out">Đăng xuất</string>
+    <string name="tittle_genres">Thể loại: </string>
     <string-array name="type_song">
         <item>Tất cả</item>
         <item>Quê hương</item>
         <item>Trữ tình</item>
         <item>Nhạc trẻ</item>
     </string-array>
-
 </resources>

@@ -7,31 +7,31 @@
         <item
             android:id="@+id/nav_sync"
             android:icon="@drawable/sync"
-            android:title="@string/string_dong_bo" />
+            android:title="@string/action_synchronized" />
         <item
             android:id="@+id/nav_time"
             android:icon="@drawable/oclock"
-            android:title="@string/string_hen_gio" />
+            android:title="@string/action_timer" />
         <item
             android:id="@+id/nav_vote"
             android:icon="@drawable/rate"
-            android:title="@string/string_danh_gia_ung_dung" />
+            android:title="@string/action_rate_app" />
         <item
             android:id="@+id/nav_info"
             android:icon="@drawable/info"
-            android:title="@string/string_thong_tin_ung_dung" />
+            android:title="@string/action_app_information" />
         <item
             android:id="@+id/nav_guide"
             android:icon="@drawable/guide"
-            android:title="@string/string_huong_dan" />
+            android:title="@string/action_guide" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/setting"
-            android:title="@string/string_cai_dat" />
+            android:title="@string/action_setting" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout"
-            android:title="@string/string_dang_xuat" />
+            android:title="@string/action_log_out" />
     </group>
 
 </menu>
