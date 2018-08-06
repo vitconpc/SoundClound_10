@@ -43,7 +43,14 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
 
     @Override
     public int getItemCount() {
-        return mSongs.size();
+        return mSongs == null ? 0 : mSongs.size();
+    }
+
+    public void addData(List<Song> songs) {
+        if (songs.size() > 0) {
+            mSongs.addAll(songs);
+            notifyDataSetChanged();
+        }
     }
 
     public class SongViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -84,7 +91,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
                     mCallback.handlerItemSongSelection(getAdapterPosition());
                     break;
                 default:
-                    mCallback.handlerItemClick(getAdapterPosition());
+                    mCallback.handlerItemClick(mSongs.get(getAdapterPosition()));
                     break;
             }
         }
