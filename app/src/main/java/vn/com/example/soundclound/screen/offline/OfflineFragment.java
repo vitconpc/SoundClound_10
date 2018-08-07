@@ -11,15 +11,17 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+
 import vn.com.example.soundclound.R;
 
-public class OfflineFragment extends Fragment{
+public class OfflineFragment extends Fragment {
 
     private RecyclerView mRecyclerviewSong;
     private Spinner mSpinnerTypeSong;
 
     @Nullable
     @Override
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_offline, container, false);
         return view;

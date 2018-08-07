@@ -13,8 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import vn.com.example.soundclound.R;
-import vn.com.example.soundclound.presenter.base.BasePresenter;
-import vn.com.example.soundclound.view.base.activity.BaseActivity;
+
+import vn.com.example.soundclound.screen.base.activity.BaseActivity;
+import vn.com.example.soundclound.screen.base.presenter.BasePresenter;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -78,7 +79,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private void initViewPager() {
         FragmentManager manager = getSupportFragmentManager();
-        FragmentAdapter adapter = new FragmentAdapter(this,manager);
+        FragmentAdapter adapter = new FragmentAdapter(this, manager);
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));

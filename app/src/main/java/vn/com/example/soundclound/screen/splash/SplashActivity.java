@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import vn.com.example.soundclound.screen.base.activity.BaseActivity;
+import vn.com.example.soundclound.screen.base.presenter.BasePresenter;
 import vn.com.example.soundclound.screen.main.MainActivity;
 import vn.com.example.soundclound.R;
-import vn.com.example.soundclound.presenter.base.BasePresenter;
-import vn.com.example.soundclound.view.base.activity.BaseActivity;
 
 public class SplashActivity extends BaseActivity {
 
