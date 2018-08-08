@@ -5,4 +5,8 @@
     <integer name="integer_1">1</integer>
     <integer name="integer_4">4</integer>
     <integer name="integer_2">2</integer>
+    <integer name="integer_6">6</integer>
+    <integer name="integer_5000">5000</integer>
+    <integer name="integer_0">0</integer>
+    <integer name="integer_3600">3600</integer>
 </resources>

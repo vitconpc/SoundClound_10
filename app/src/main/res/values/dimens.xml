@@ -39,4 +39,15 @@
     <dimen name="dp_309">309dp</dimen>
     <dimen name="dp_248">248dp</dimen>
     <dimen name="dp_104">104dp</dimen>
+    <dimen name="dp_305">305dp</dimen>
+    <dimen name="dp_42">42dp</dimen>
+    <dimen name="dp_220">220dp</dimen>
+    <dimen name="dp_308">308dp</dimen>
+    <dimen name="dp_37">37dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_412">412dp</dimen>
+    <dimen name="dp_47">47dp</dimen>
+    <dimen name="dp_236">236dp</dimen>
 </resources>
