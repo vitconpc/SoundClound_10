@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".screen.detail_play.DetailPlayMusicActivity"></activity>
+        <activity android:name=".screen.detail_play.DetailPlayMusicActivity" />
+        <activity android:name=".screen.search.SearchActivity" />
     </application>
 
 </manifest>
