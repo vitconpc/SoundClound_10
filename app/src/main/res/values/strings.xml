@@ -19,6 +19,8 @@
     <string name="tittle_genres">Thể loại: </string>
     <string name="text_real_time">00:00</string>
     <string name="text_total_time">00:00</string>
+    <string name="message_error_path">Lỗi đường dẫn</string>
+    <string name="date_time">mm:ss</string>
     <string-array name="type_song">
         <item>Tất cả</item>
         <item>Quê hương</item>

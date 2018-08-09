@@ -1,6 +1,8 @@
 package vn.com.example.soundclound.screen.online;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,20 +16,21 @@ import java.util.List;
 
 import vn.com.example.soundclound.R;
 import vn.com.example.soundclound.data.model.common.Constants;
-import vn.com.example.soundclound.data.model.common.SpinnerType;
+import vn.com.example.soundclound.data.model.common.StringType;
 import vn.com.example.soundclound.data.model.common.adapter.SongAdapter;
 import vn.com.example.soundclound.data.model.entity.Song;
 import vn.com.example.soundclound.data.repository.SongReponsitory;
 import vn.com.example.soundclound.screen.base.fragment.BaseFragment;
+import vn.com.example.soundclound.screen.detail_play.DetailPlayMusicActivity;
 
 public class OnlineFragment extends BaseFragment<OnlinePresenter> implements CallbackSongAdapter
         , AdapterView.OnItemSelectedListener, OnlineContract.View {
     private Spinner mSpinerGenres;
     private RecyclerView mRecyclerViewSongs;
     private SongAdapter mSongAdapter;
-    private String[] mListSpinner = {SpinnerType.GENRE_ALL_MUSIC, SpinnerType.GENRE_ALL_AUDIO
-            , SpinnerType.GENRE_ALTERNATIVEROCK, SpinnerType.GENRE_AMBIENT
-            , SpinnerType.GENRE_CLASSICAL, SpinnerType.GENRE_COUNTRY};
+    private String[] mListSpinner = {StringType.GENRE_ALL_MUSIC, StringType.GENRE_ALL_AUDIO
+            , StringType.GENRE_ALTERNATIVEROCK, StringType.GENRE_AMBIENT
+            , StringType.GENRE_CLASSICAL, StringType.GENRE_COUNTRY};
 
     private List<Song> mSongs;
 
@@ -51,12 +54,21 @@ public class OnlineFragment extends BaseFragment<OnlinePresenter> implements Cal
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        getPresenter().loadSongs(SpinnerType.GENRE_ALL_MUSIC);
+        getPresenter().loadSongs(StringType.GENRE_ALL_MUSIC);
     }
 
     @Override
-    public void handlerItemClick(Song song) {
+    public void handlerItemClick(int currentPosition) {
+        gotoDetailActivity(currentPosition);
+    }
 
+    private void gotoDetailActivity(int position) {
+        Intent intent = new Intent(getActivity(), DetailPlayMusicActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList(Constants.KEY_SONGS, (ArrayList<? extends Parcelable>) mSongs);
+        bundle.putInt(Constants.KEY_POSITION,position);
+        intent.putExtra(Constants.KEY_BUNDLE,bundle);
+        startActivity(intent);
     }
 
     @Override
@@ -81,6 +93,7 @@ public class OnlineFragment extends BaseFragment<OnlinePresenter> implements Cal
 
     @Override
     public void getSongsSuccess(List<Song> songs) {
+        mSongs.addAll(songs);
         mSongAdapter.addData(songs);
     }
 

@@ -1,6 +1,7 @@
 package vn.com.example.soundclound.data.model.common.adapter;
 
 import android.content.Context;
+import android.os.Parcel;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import vn.com.example.soundclound.R;
@@ -26,6 +28,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         this.mContext = context;
         this.mSongs = songs;
         this.mCallback = callbackSongAdapter;
+        mSongs = new ArrayList<>();
     }
 
     @NonNull
@@ -91,7 +94,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
                     mCallback.handlerItemSongSelection(getAdapterPosition());
                     break;
                 default:
-                    mCallback.handlerItemClick(mSongs.get(getAdapterPosition()));
+                    mCallback.handlerItemClick(getAdapterPosition());
                     break;
             }
         }
