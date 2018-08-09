@@ -16,4 +16,12 @@ public class Constants {
     public static final String KEY_BUNDLE = "BUNDLE";
     public static final String STREAM = "/stream?";
     public static final long DELAY_MILLIS = 50;
+
+    public static final String ACTION_BIND_SERVICE = "ACTION_BIND_SERVICE";
+    public static final int ID_NOTIFICATION_SERVICE = 1;
+    public static final String CHANNEL_ID = "CHANNEL_ID";
+    public static final String FILE_SAVE_SHA = "FILE_SAVE_SHA";
+    public static final String KEY_LOOP = "KEY_LOOP";
+    public static final String KEY_SHUFFLE = "KEY_SHUFFLE";
+    public static final String KEY_PROGESS = "KEY_PROGESS";
 }

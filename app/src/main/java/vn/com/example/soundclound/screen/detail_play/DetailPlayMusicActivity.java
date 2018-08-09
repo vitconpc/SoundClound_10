@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import java.util.List;
 
 import vn.com.example.soundclound.R;
 import vn.com.example.soundclound.data.model.common.Constants;
+import vn.com.example.soundclound.data.model.common.utils.Utils;
 import vn.com.example.soundclound.data.model.entity.Song;
 import vn.com.example.soundclound.screen.base.activity.BaseActivity;
 import vn.com.example.soundclound.service.MusicService;
@@ -24,8 +26,6 @@ import vn.com.example.soundclound.service.ServiceCallback;
 
 public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Presenter>
         implements DetailPlayContract.View, ServiceCallback, SeekBar.OnSeekBarChangeListener, View.OnClickListener {
-
-    private static final String ACTION_BIND_SERVICE = "ACTION_BIND_SERVICE";
     private ServiceConnection mSCon;
     private MusicService mMusicService;
     private List<Song> mSongs;
@@ -43,12 +43,18 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
     private ImageView mImageShuffle;
     private TextView mTextCurrentTime;
     private TextView mTextTotalTime;
-    private SeekBar mSeekBarSong;
     private SimpleDateFormat mDateFormat;
     private boolean mTrackingSeekBar = false;
     private ImageView mImageDisk;
+    private TextView mTextNameSong;
+    private TextView mTextNameSinger;
+    private SeekBar mSeekBarSong;
+    private boolean mIsShuffle;
+    private boolean mIsLoop;
+    private int mProgess;
 
     @Override
+
     protected int getLayoutResource() {
         return R.layout.activity_detail_play_music;
     }
@@ -72,9 +78,27 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
         registerListener();
         mImageDisk.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_rotate));
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mIsShuffle = Utils.getState(this, Constants.KEY_SHUFFLE);
+        mIsLoop = Utils.getState(this, Constants.KEY_LOOP);
+        postLoop(mIsLoop);
+        postShuffle(mIsShuffle);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Utils.saveState(this, Constants.KEY_LOOP, mIsLoop);
+        Utils.saveState(this, Constants.KEY_SHUFFLE, mIsShuffle);
+    }
+
     @Override
     public void postName(String songName, String author) {
-        //todo set name and author
+        mTextNameSong.setText(songName);
+        mTextNameSinger.setText(author);
     }
 
     @Override
@@ -103,12 +127,22 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
 
     @Override
     public void postShuffle(boolean isShuffle) {
-        //todo set icon Shuffle
+        mIsShuffle = isShuffle;
+        if (mIsShuffle) {
+            mImageShuffle.setImageResource(R.drawable.ic_shuffle);
+        } else {
+            mImageShuffle.setImageResource(R.drawable.ic_not_shuffle);
+        }
     }
 
     @Override
     public void postLoop(boolean isLoop) {
-        //todo set icon loop
+        mIsLoop = isLoop;
+        if (mIsLoop) {
+            mImageLoop.setImageResource(R.drawable.ic_loop);
+        } else {
+            mImageLoop.setImageResource(R.drawable.repeat);
+        }
     }
 
     @Override
@@ -173,12 +207,19 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
 
     public void getDataInIntent() {
         Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra(Constants.KEY_BUNDLE);
-        mSongs = bundle.getParcelableArrayList(Constants.KEY_SONGS);
-        mCurentSong = bundle.getInt(Constants.KEY_POSITION, 0);
-        mMusicService.setSongs(mSongs);
-        mMusicService.setCurrentSong(mCurentSong);
-        mMusicService.playSong();
+        if (intent != null) {
+            Bundle bundle = intent.getBundleExtra(Constants.KEY_BUNDLE);
+            mSongs = bundle.getParcelableArrayList(Constants.KEY_SONGS);
+            mCurentSong = bundle.getInt(Constants.KEY_POSITION, 0);
+            mMusicService.setSongs(mSongs);
+            mMusicService.setCurrentSong(mCurentSong);
+            mProgess = bundle.getInt(Constants.KEY_PROGESS, 0);
+            if (mProgess > 0) {
+                mMusicService.seekTo(mProgess);
+            } else {
+                mMusicService.playSong();
+            }
+        }
     }
 
     @Override
@@ -186,7 +227,7 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
         super.onDestroy();
         if (!mMusicService.isPlay()) {
             Intent intent = new Intent(this, MusicService.class);
-            intent.setAction(ACTION_BIND_SERVICE);
+            intent.setAction(Constants.ACTION_BIND_SERVICE);
             stopService(intent);
         }
     }
@@ -210,8 +251,6 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
             public void onServiceConnected(ComponentName name, IBinder iBinder) {
                 mMusicService = ((MusicService.MyBinder) iBinder).getMusicService();
                 mMusicService.setListener(DetailPlayMusicActivity.this);
-                mMusicService.setLoop(false);
-                mMusicService.setShuffle(false);
                 mIsBound = true;
                 getDataInIntent();
             }
@@ -221,7 +260,7 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
             }
         };
         Intent intent = new Intent(this, MusicService.class);
-        intent.setAction(ACTION_BIND_SERVICE);
+        intent.setAction(Constants.ACTION_BIND_SERVICE);
         startService(intent);
         bindService(intent, mSCon, BIND_AUTO_CREATE);
     }
@@ -238,7 +277,9 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
         mImageShuffle = findViewById(R.id.image_shuffle);
         mTextTotalTime = findViewById(R.id.text_total_time);
         mTextCurrentTime = findViewById(R.id.text_current_time);
-        mSeekBarSong = findViewById(R.id.seekbar_song);
         mImageDisk = findViewById(R.id.image_disk_rotate);
+        mTextNameSinger = findViewById(R.id.text_name_singer);
+        mTextNameSong = findViewById(R.id.text_name_song);
+        mSeekBarSong = findViewById(R.id.seekbar_song);
     }
 }
