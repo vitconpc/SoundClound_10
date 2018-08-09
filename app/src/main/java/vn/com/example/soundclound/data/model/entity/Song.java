@@ -1,6 +1,9 @@
 package vn.com.example.soundclound.data.model.entity;
 
-public class Song {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Song implements Parcelable{
     private String mArtworkUrl;
     private String mDescription;
     private boolean mDownloadable;
@@ -15,6 +18,35 @@ public class Song {
     private String mUri;
     private String mUserName;
     private String mAvatarUrl;
+
+    protected Song(Parcel in) {
+        mArtworkUrl = in.readString();
+        mDescription = in.readString();
+        mDownloadable = in.readByte() != 0;
+        mDownloadCount = in.readInt();
+        mDownloadUrl = in.readString();
+        mDuration = in.readLong();
+        mId = in.readInt();
+        mKind = in.readString();
+        mLikesCount = in.readInt();
+        mPlaybackCount = in.readInt();
+        mTitle = in.readString();
+        mUri = in.readString();
+        mUserName = in.readString();
+        mAvatarUrl = in.readString();
+    }
+
+    public static final Creator<Song> CREATOR = new Creator<Song>() {
+        @Override
+        public Song createFromParcel(Parcel in) {
+            return new Song(in);
+        }
+
+        @Override
+        public Song[] newArray(int size) {
+            return new Song[size];
+        }
+    };
 
     public String getUserName() {
         return mUserName;
@@ -129,5 +161,45 @@ public class Song {
 
     public void setUri(String uri) {
         this.mUri = uri;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mArtworkUrl);
+        dest.writeString(mDescription);
+        dest.writeByte((byte) (mDownloadable ? 1 : 0));
+        dest.writeInt(mDownloadCount);
+        dest.writeString(mDownloadUrl);
+        dest.writeLong(mDuration);
+        dest.writeInt(mId);
+        dest.writeString(mKind);
+        dest.writeInt(mLikesCount);
+        dest.writeInt(mPlaybackCount);
+        dest.writeString(mTitle);
+        dest.writeString(mUri);
+        dest.writeString(mUserName);
+        dest.writeString(mAvatarUrl);
+    }
+
+    public void read(Parcel in) {
+        mArtworkUrl = in.readString();
+        mDescription = in.readString();
+        mDownloadable = in.readByte() != 0;
+        mDownloadCount = in.readInt();
+        mDownloadUrl = in.readString();
+        mDuration = in.readLong();
+        mId = in.readInt();
+        mKind = in.readString();
+        mLikesCount = in.readInt();
+        mPlaybackCount = in.readInt();
+        mTitle = in.readString();
+        mUri = in.readString();
+        mUserName = in.readString();
+        mAvatarUrl = in.readString();
     }
 }

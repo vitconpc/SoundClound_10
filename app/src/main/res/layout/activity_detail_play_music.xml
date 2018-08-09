@@ -70,7 +70,7 @@
         app:srcCompat="@drawable/share" />
 
     <TextView
-        android:id="@+id/text_time_start"
+        android:id="@+id/text_current_time"
         android:layout_width="@dimen/dp_36"
         android:layout_height="@dimen/dp_19"
         android:layout_marginBottom="@dimen/dp_80"
@@ -81,7 +81,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/seekbar_song"
         android:layout_width="@dimen/dp_258"
         android:layout_height="@dimen/dp_38"
         android:layout_marginBottom="@dimen/dp_68"
@@ -92,10 +92,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/text_time_start" />
+        app:layout_constraintStart_toEndOf="@+id/text_current_time" />
 
     <TextView
-        android:id="@+id/text_time_total"
+        android:id="@+id/text_total_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp_80"
@@ -107,10 +107,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/text_time_start" />
+        app:layout_constraintStart_toEndOf="@+id/text_current_time" />
 
     <ImageView
-        android:id="@+id/image_repeat"
+        android:id="@+id/image_loop"
         android:layout_width="@dimen/dp_36"
         android:layout_height="@dimen/dp_26"
         android:layout_marginBottom="@dimen/dp_28"
@@ -128,10 +128,11 @@
         android:layout_marginLeft="@dimen/dp_20"
         android:layout_marginStart="@dimen/dp_20"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image_repeat"
+        app:layout_constraintStart_toEndOf="@+id/image_loop"
         app:srcCompat="@drawable/back" />
 
     <ImageView
+
         android:id="@+id/image_play"
         android:layout_width="@dimen/dp_34"
         android:layout_height="@dimen/dp_24"
@@ -159,7 +160,7 @@
         app:srcCompat="@drawable/next" />
 
     <ImageView
-        android:id="@+id/image_list"
+        android:id="@+id/image_shuffle"
         android:layout_width="@dimen/dp_31"
         android:layout_height="@dimen/dp_24"
         android:layout_marginBottom="@dimen/dp_28"
@@ -183,18 +184,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/disk" />
-
-    <ImageView
-        android:id="@+id/image_pause"
-        android:layout_width="@dimen/dp_34"
-        android:layout_height="@dimen/dp_24"
-        android:layout_marginBottom="@dimen/dp_28"
-        android:layout_marginLeft="@dimen/dp_32"
-        android:layout_marginStart="@dimen/dp_32"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/image_previous"
-        app:srcCompat="@drawable/pause" />
 
     <TextView
         android:id="@+id/text_name_song"
@@ -230,5 +219,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_name_song" />
-
 </android.support.constraint.ConstraintLayout>
