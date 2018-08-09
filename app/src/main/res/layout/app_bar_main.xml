@@ -49,7 +49,7 @@
                         android:layout_width="@dimen/dp_48"
                         android:layout_height="@dimen/dp_36"
                         android:layout_weight="@integer/integer_1"
-                        android:background="@drawable/ic_search"
+                        android:background="@drawable/ic_search_white"
                         android:gravity="center" />
                 </LinearLayout>
             </LinearLayout>
@@ -62,5 +62,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/app_bar" />
-
 </RelativeLayout>
