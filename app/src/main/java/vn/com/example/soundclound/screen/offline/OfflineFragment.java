@@ -51,7 +51,7 @@ public class OfflineFragment extends BaseFragment<OfflinePresenter> implements O
 
     private void initRecycler(View rootView) {
         mSongs = new ArrayList<>();
-        mSongAdapter = new SongAdapter(getActivity(), mSongs, this, true);
+        mSongAdapter = new SongAdapter(getActivity(), mSongs, this);
         mRecyclerviewSong = rootView.findViewById(R.id.recycler_song);
         mRecyclerviewSong.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());

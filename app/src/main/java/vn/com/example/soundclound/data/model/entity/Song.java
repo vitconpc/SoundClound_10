@@ -18,6 +18,13 @@ public class Song implements Parcelable{
     private String mUri;
     private String mUserName;
     private String mAvatarUrl;
+    private String mPath;
+
+    public Song(String nameSong, String nameSinger, String path){
+        this.mTitle = nameSong;
+        this.mUserName = nameSinger;
+        this.mPath = path;
+    }
 
     protected Song(Parcel in) {
         mArtworkUrl = in.readString();
