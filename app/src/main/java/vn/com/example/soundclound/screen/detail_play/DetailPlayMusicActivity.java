@@ -6,6 +6,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -45,6 +46,7 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
     private SeekBar mSeekBarSong;
     private SimpleDateFormat mDateFormat;
     private boolean mTrackingSeekBar = false;
+    private ImageView mImageDisk;
 
     @Override
     protected int getLayoutResource() {
@@ -68,6 +70,7 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
         connectService();
         bindView();
         registerListener();
+        mImageDisk.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_rotate));
     }
     @Override
     public void postName(String songName, String author) {
@@ -236,5 +239,6 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
         mTextTotalTime = findViewById(R.id.text_total_time);
         mTextCurrentTime = findViewById(R.id.text_current_time);
         mSeekBarSong = findViewById(R.id.seekbar_song);
+        mImageDisk = findViewById(R.id.image_disk_rotate);
     }
 }

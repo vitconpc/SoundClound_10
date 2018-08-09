@@ -7,7 +7,6 @@
     android:background="@color/color_white">
 
     <ImageView
-        android:id="@+id/imageView3"
         android:layout_width="@dimen/dp_183"
         android:layout_height="@dimen/dp_47"
         android:layout_marginEnd="@dimen/dp_8"
@@ -132,7 +131,6 @@
         app:srcCompat="@drawable/back" />
 
     <ImageView
-
         android:id="@+id/image_play"
         android:layout_width="@dimen/dp_34"
         android:layout_height="@dimen/dp_24"
@@ -165,22 +163,26 @@
         android:layout_height="@dimen/dp_24"
         android:layout_marginBottom="@dimen/dp_28"
         android:layout_marginEnd="@dimen/dp_84"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="@dimen/dp_84"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/image_next"
         app:srcCompat="@drawable/list" />
 
     <ImageView
         android:id="@+id/image_disk_rotate"
-        android:layout_width="@dimen/dp_309"
-        android:layout_height="@dimen/dp_236"
+        android:layout_width="@dimen/dp_293"
+        android:layout_height="@dimen/dp_191"
         android:layout_marginEnd="@dimen/dp_8"
         android:layout_marginLeft="@dimen/dp_8"
         android:layout_marginRight="@dimen/dp_8"
         android:layout_marginStart="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_84"
+        android:layout_marginTop="@dimen/dp_92"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/disk" />
