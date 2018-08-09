@@ -15,6 +15,13 @@ public class Song {
     private String mUri;
     private String mUserName;
     private String mAvatarUrl;
+    private String mPath;
+
+    public Song(String nameSong, String nameSinger, String path){
+        this.mTitle = nameSong;
+        this.mUserName = nameSinger;
+        this.mPath = path;
+    }
 
     public String getUserName() {
         return mUserName;

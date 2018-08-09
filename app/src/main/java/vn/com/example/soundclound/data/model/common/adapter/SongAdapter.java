@@ -37,7 +37,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull SongViewHolder holder, int position) {
-        holder.bindData(mSongs.get(position));
+            holder.bindData(mSongs.get(position));
     }
 
 
@@ -74,7 +74,9 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
 
         public void bindData(Song song) {
             if (song != null) {
-                Picasso.with(mContext).load(song.getAvatarUrl()).fit().centerCrop().into(mImageAvatar);
+                if (song.getAvatarUrl() != null){
+                    Picasso.with(mContext).load(song.getAvatarUrl()).fit().centerCrop().into(mImageAvatar);
+                }
                 mTextSongName.setText(song.getTitle());
                 mTextArtist.setText(song.getUserName());
                 mImageDownload.setVisibility(song.isDownloadable() ? View.VISIBLE : View.GONE);
