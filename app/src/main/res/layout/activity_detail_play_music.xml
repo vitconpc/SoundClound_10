@@ -7,6 +7,7 @@
     android:background="@color/color_white">
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="@dimen/dp_183"
         android:layout_height="@dimen/dp_47"
         android:layout_marginEnd="@dimen/dp_8"
@@ -40,7 +41,7 @@
         android:layout_marginStart="@dimen/dp_32"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_love"
-        app:srcCompat="@drawable/download" />
+        app:srcCompat="@drawable/ic_download" />
 
     <ImageView
         android:id="@+id/image_oclock"

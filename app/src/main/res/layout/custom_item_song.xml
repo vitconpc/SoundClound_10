@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,12 +27,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_0"
                 android:layout_weight="1"
+                android:textSize="@dimen/dp_18"
+                android:textColor="@color/color_black"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:gravity="center_vertical"
                 android:maxLines="1" />
 
             <TextView
                 android:id="@+id/text_artist"
                 android:layout_width="match_parent"
+                android:textSize="@dimen/dp_15"
+                android:textColor="@color/color_gray"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:layout_height="@dimen/dp_0"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
@@ -44,14 +51,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:padding="@dimen/dp_5"
-            android:src="@drawable/ic_download" />
+            app:srcCompat="@drawable/ic_download" />
 
         <ImageView
             android:id="@+id/image_item_action"
             android:layout_width="@dimen/dp_36"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/dp_8"
-            android:src="@drawable/ic_more_vert"
+            app:srcCompat="@drawable/ic_more_vert"
             android:textStyle="bold" />
     </LinearLayout>
 </android.support.v7.widget.CardView>
