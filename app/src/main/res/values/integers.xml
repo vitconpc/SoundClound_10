@@ -9,4 +9,6 @@
     <integer name="integer_5000">5000</integer>
     <integer name="integer_0">0</integer>
     <integer name="integer_3600">3600</integer>
+    <integer name="integer_360">360</integer>
+    <integer name="integer_3000">3000</integer>
 </resources>

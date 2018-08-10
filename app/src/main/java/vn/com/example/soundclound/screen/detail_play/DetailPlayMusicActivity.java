@@ -5,13 +5,15 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -54,7 +56,6 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
     private int mProgess;
 
     @Override
-
     protected int getLayoutResource() {
         return R.layout.activity_detail_play_music;
     }
@@ -76,7 +77,6 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
         connectService();
         bindView();
         registerListener();
-        mImageDisk.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_rotate));
     }
 
     @Override
@@ -141,13 +141,19 @@ public class DetailPlayMusicActivity extends BaseActivity<DetailPlayContract.Pre
         if (mIsLoop) {
             mImageLoop.setImageResource(R.drawable.ic_loop);
         } else {
-            mImageLoop.setImageResource(R.drawable.repeat);
+            mImageLoop.setImageResource(R.drawable.ic_repeat);
         }
     }
 
     @Override
     public void showError(String error) {
         Toast.makeText(mMusicService, error, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void postAvatar(String url) {
+        Picasso.with(this).load(url).placeholder(R.drawable.album_icon)
+                .fit().centerCrop().into(mImageDisk);
     }
 
     @Override

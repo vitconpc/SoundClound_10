@@ -55,4 +55,6 @@
     <dimen name="dp_92">92dp</dimen>
     <dimen name="sp_15">15sp</dimen>
     <dimen name="sp_24">24sp</dimen>
+    <dimen name="dp_224">224dp</dimen>
+    <dimen name="dp_260">260dp</dimen>
 </resources>

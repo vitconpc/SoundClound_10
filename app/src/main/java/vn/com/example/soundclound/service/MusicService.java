@@ -146,6 +146,7 @@ public class MusicService extends Service implements BaseMediaPlayer
             mProgess = mMediaPlayer.getCurrentPosition();
             mMediaPlayer.pause();
             mServiceCallback.postPauseButon();
+            postNotification();
         }
     }
 
@@ -212,6 +213,9 @@ public class MusicService extends Service implements BaseMediaPlayer
         postCurrentTime();
         postTitle(mSongs.get(mCurrentPossition));
         mServiceCallback.postStartButton();
+        if (mSongs.get(mCurrentPossition).getAvatarUrl()!=null){
+            mServiceCallback.postAvatar(mSongs.get(mCurrentPossition).getAvatarUrl());
+        }
         mMediaPlayer.start();
         postNotification();
     }
@@ -246,6 +250,7 @@ public class MusicService extends Service implements BaseMediaPlayer
         mMediaPlayer.start();
         mServiceCallback.postStartButton();
         postCurrentTime();
+        postNotification();
     }
 
     public int getProgess() {
@@ -269,7 +274,6 @@ public class MusicService extends Service implements BaseMediaPlayer
     }
 
     private void postNotification() {
-
         Intent intent = new Intent(this, DetailPlayMusicActivity.class);
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(Constants.KEY_SONGS, (ArrayList<? extends Parcelable>) mSongs);
@@ -334,10 +338,8 @@ public class MusicService extends Service implements BaseMediaPlayer
             case ACTION_PLAY:
                 if (isPlay()) {
                     pauseSong();
-                    postNotification();
                 } else {
                     continuesSong();
-                    postNotification();
                 }
                 break;
             case ACTION_NEXT:
