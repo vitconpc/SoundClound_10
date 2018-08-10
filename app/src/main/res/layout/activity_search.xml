@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,54 +10,33 @@
         android:id="@+id/linear_search"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_58"
-        android:layout_marginBottom="@dimen/dp_412"
         android:background="@color/color_light_blue"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/button_ation_back"
-            android:layout_width="@dimen/dp_0"
-            android:layout_height="@dimen/dp_32"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
             android:layout_gravity="center"
-            android:layout_weight="@integer/integer_1"
-            android:background="@drawable/ic_arrow_back"
+            android:background="@drawable/ic_back"
             android:gravity="center"
             android:paddingRight="@dimen/dp_10" />
 
-        <AutoCompleteTextView
-            android:id="@+id/auto_text_search"
-            android:layout_width="@dimen/dp_0"
-            android:layout_height="match_parent"
+        <EditText
+            android:id="@+id/edit_text_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_5"
-            android:layout_weight="@integer/integer_6"
-            android:background="@color/color_white" />
+            android:background="@drawable/custom_search"
+            android:drawableRight="@drawable/ic_search"
+            android:drawablePadding="@dimen/dp_15"/>
 
-        <Button
-            android:id="@+id/button_action_search"
-            android:layout_width="@dimen/dp_0"
-            android:layout_height="match_parent"
-            android:layout_weight="@integer/integer_1"
-            android:background="@drawable/ic_search_white" />
     </LinearLayout>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_result_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:layout_marginLeft="@dimen/dp_8"
-        android:layout_marginStart="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear_search"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/linear_search" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

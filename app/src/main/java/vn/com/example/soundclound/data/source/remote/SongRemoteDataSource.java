@@ -23,4 +23,9 @@ public class SongRemoteDataSource implements DataSource.RemoteDataSource {
     public void getSongRemoteOffline(Context context, DataSource.OnFetchDataListener<Song> listener) {
         new GetDataOffline(context, listener).execute();
     }
+
+    @Override
+    public void searchTracksByTitle(String title, DataSource.OnFetchDataListener<Song> listener, String url) {
+        new GetSearchData(listener).execute(url);
+    }
 }

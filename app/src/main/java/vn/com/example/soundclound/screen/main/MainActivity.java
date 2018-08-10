@@ -2,6 +2,7 @@ package vn.com.example.soundclound.screen.main;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,13 +17,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import vn.com.example.soundclound.R;
 
 import vn.com.example.soundclound.screen.base.activity.BaseActivity;
 import vn.com.example.soundclound.screen.base.presenter.BasePresenter;
+import vn.com.example.soundclound.screen.search.SearchActivity;
 
-public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private DrawerLayout mDrawerLayout;
     private Toolbar mToolbar;
@@ -31,6 +35,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private TabLayout mTabLayout;
     private String[] mPermision = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE};
     public static final int PERMISSIONS_REQUEST_CODE = 100;
+    private Button mButtonSearch;
 
     @Override
     protected int getLayoutResource() {
@@ -65,6 +70,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         mNavigationView = findViewById(R.id.nav_view);
         mViewPager = findViewById(R.id.view_pager);
         mTabLayout = findViewById(R.id.tab_layout);
+        mButtonSearch = findViewById(R.id.button_search);
+        mButtonSearch.setOnClickListener(this);
     }
 
     @Override
@@ -126,5 +133,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
                 break;
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        openSearchActivity();
+    }
+
+    private void openSearchActivity() {
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
     }
 }

@@ -178,7 +178,7 @@
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/disk" />
+        app:srcCompat="@drawable/album_icon" />
 
     <TextView
         android:id="@+id/text_name_song"

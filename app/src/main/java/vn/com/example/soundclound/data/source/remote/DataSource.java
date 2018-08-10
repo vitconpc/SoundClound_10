@@ -10,11 +10,11 @@ public interface DataSource {
     interface RemoteDataSource {
         void getSongRemote(OnFetchDataListener<Song> listener, String url);
         void getSongRemoteOffline(Context context, OnFetchDataListener<Song> listener);
+        void searchTracksByTitle(String title, OnFetchDataListener<Song> listener, String url);
     }
 
     interface OnFetchDataListener<T> {
         void onFetchDataSuccess(List<T> data);
-
         void onFetchDataFailure(String error);
     }
 }

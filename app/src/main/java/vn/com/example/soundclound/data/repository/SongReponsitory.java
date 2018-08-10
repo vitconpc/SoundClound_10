@@ -31,4 +31,9 @@ public class SongReponsitory implements DataSource.RemoteDataSource {
     public void getSongRemoteOffline(Context context, DataSource.OnFetchDataListener<Song> listener) {
         mRemoteDataSource.getSongRemoteOffline(context, listener);
     }
+
+    @Override
+    public void searchTracksByTitle(String title, DataSource.OnFetchDataListener<Song> listener, String url) {
+        mRemoteDataSource.searchTracksByTitle(title, listener, url);
+    }
 }
