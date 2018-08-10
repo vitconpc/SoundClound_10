@@ -3,16 +3,9 @@ package vn.com.example.soundclound.screen.offline;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 
@@ -27,7 +20,6 @@ import vn.com.example.soundclound.data.repository.SongReponsitory;
 import vn.com.example.soundclound.screen.base.fragment.BaseFragment;
 import vn.com.example.soundclound.screen.detail_play.DetailPlayMusicActivity;
 import vn.com.example.soundclound.screen.online.CallbackSongAdapter;
-import vn.com.example.soundclound.screen.online.OnlinePresenter;
 
 public class OfflineFragment extends BaseFragment<OfflinePresenter> implements OfflineContract.View,
         CallbackSongAdapter {
@@ -78,6 +70,7 @@ public class OfflineFragment extends BaseFragment<OfflinePresenter> implements O
         Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
     }
 
+
     @Override
     public void handlerItemClick(int possition) {
         gotoDetailActivity(possition);
@@ -87,8 +80,8 @@ public class OfflineFragment extends BaseFragment<OfflinePresenter> implements O
         Intent intent = new Intent(getActivity(), DetailPlayMusicActivity.class);
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(Constants.KEY_SONGS, (ArrayList<? extends Parcelable>) mSongs);
-        bundle.putInt(Constants.KEY_POSITION,position);
-        intent.putExtra(Constants.KEY_BUNDLE,bundle);
+        bundle.putInt(Constants.KEY_POSITION, position);
+        intent.putExtra(Constants.KEY_BUNDLE, bundle);
         startActivity(intent);
     }
 

@@ -53,5 +53,6 @@
     <dimen name="dp_293">293dp</dimen>
     <dimen name="dp_191">191dp</dimen>
     <dimen name="dp_92">92dp</dimen>
-
+    <dimen name="sp_15">15sp</dimen>
+    <dimen name="sp_24">24sp</dimen>
 </resources>

@@ -48,12 +48,6 @@ public class Song implements Parcelable{
         }
     };
 
-    public Song(String nameSong, String nameSinger, String uri) {
-        this.mTitle = nameSong;
-        this.mUserName = nameSinger;
-        this.mUri = uri;
-    }
-
     public String getUserName() {
         return mUserName;
     }
@@ -71,6 +65,12 @@ public class Song implements Parcelable{
     }
 
     public Song() {
+    }
+
+    public Song(String title, String userName, String uri) {
+        this.mTitle = title;
+        this.mUri = uri;
+        this.mUserName = userName;
     }
 
     public String getArtworkUrl() {
